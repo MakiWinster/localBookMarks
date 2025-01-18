@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Bookmarks</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-bookmark"></i> Local Bookmarks
+            </div>
+            <div class="search-container">
+                <div class="search-tabs">
+                    <button class="search-tab active" data-tab="bookmarks">
+                        <i class="fas fa-bookmark"></i> 书签
+                    </button>
+                    <button class="search-tab" data-tab="web">
+                        <i class="fas fa-globe"></i> 网络搜索
+                    </button>
+                </div>
+                <input type="text" id="search-box" class="search-box" placeholder="搜索...">
+                <div class="search-engines">
+                    <button class="engine-button active" data-engine="bing" title="使用 Bing 搜索">
+                        <i class="fab fa-microsoft"></i>
+                    </button>
+                    <button class="engine-button" data-engine="google" title="使用 Google 搜索">
+                        <i class="fab fa-google"></i>
+                    </button>
+                </div>
+            </div>
+            <ul class="folder-filters">
+                <li class="folder-filter active" data-folder="all">
+                    <i class="fas fa-th-large"></i>
+                    全部
+                </li>
+                {% for folder in bookmarks %}
+                    {% if folder.type == 'folder' %}
+                    <li class="folder-filter" data-folder="{{ folder.title }}">
+                        <i class="fas fa-folder"></i>
+                        {{ folder.title }}
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
+        <main class="main-content">
+            {% for folder in bookmarks %}
+                {% if folder.type == 'folder' %}
+                <section class="bookmarks-section" data-folder="{{ folder.title }}">
+                    <h2 class="section-title">
+                        <i class="fas fa-folder"></i> {{ folder.title }}
+                    </h2>
+                    <div class="bookmarks-grid">
+                        {% for item in folder.children recursive %}
+                            {% if item.type == 'link' %}
+                            <div class="bookmark-item">
+                                <a href="{{ item.url }}" class="bookmark-link" target="_blank">
+                                    <img src="{{ item.icon }}" alt="" class="bookmark-icon" 
+                                         onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjNjQ3NDhiIiBkPSJNMzg0IDBoLTI1NmMtMTcuNyAwLTMyIDE0LjMtMzIgMzJ2NDQ4YzAgMTcuNyAxNC4zIDMyIDMyIDMyaDI1NmMxNy43IDAgMzItMTQuMyAzMi0zMlYzMmMwLTE3LjctMTQuMy0zMi0zMi0zMnptLTMyIDQ0OEgxNjBWNjRoMTkydjM4NHoiLz48L3N2Zz4=';">
+                                    <span>{{ item.title }}</span>
+                                </a>
+                            </div>
+                            {% elif item.type == 'folder' %}
+                                {{ loop(item.children) }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </section>
+                {% endif %}
+            {% endfor %}
+        </main>
+    </div>
+
+    <script src="static/script.js"></script>
+</body>
+</html> 

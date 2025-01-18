@@ -1,0 +1,141 @@
+[
+  {
+    "type": "folder",
+    "addDate": 1725562349308,
+    "title": "收藏夹栏",
+    "children": [
+      {
+        "type": "folder",
+        "title": "常用工具",
+        "children": [
+          {
+            "type": "link",
+            "title": "GitHub",
+            "icon": "https://github.com/favicon.ico",
+            "url": "https://github.com/"
+          },
+          {
+            "type": "link",
+            "title": "ChatGPT",
+            "icon": "https://chat.openai.com/favicon.ico",
+            "url": "https://chat.openai.com/"
+          },
+          {
+            "type": "link",
+            "title": "Google 翻译",
+            "icon": "https://translate.google.com/favicon.ico",
+            "url": "https://translate.google.com/"
+          },
+          {
+            "type": "link",
+            "title": "在线工具",
+            "icon": "https://tool.lu/favicon.ico",
+            "url": "https://tool.lu/"
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": "学习资源",
+        "children": [
+          {
+            "type": "link",
+            "title": "MDN Web Docs",
+            "icon": "https://developer.mozilla.org/favicon.ico",
+            "url": "https://developer.mozilla.org/"
+          },
+          {
+            "type": "link",
+            "title": "Stack Overflow",
+            "icon": "https://stackoverflow.com/favicon.ico",
+            "url": "https://stackoverflow.com/"
+          },
+          {
+            "type": "link",
+            "title": "LeetCode",
+            "icon": "https://leetcode.com/favicon.ico",
+            "url": "https://leetcode.com/"
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": "设计资源",
+        "children": [
+          {
+            "type": "link",
+            "title": "Dribbble",
+            "icon": "https://dribbble.com/favicon.ico",
+            "url": "https://dribbble.com/"
+          },
+          {
+            "type": "link",
+            "title": "Behance",
+            "icon": "https://www.behance.net/favicon.ico",
+            "url": "https://www.behance.net/"
+          },
+          {
+            "type": "link",
+            "title": "Figma",
+            "icon": "https://www.figma.com/favicon.ico",
+            "url": "https://www.figma.com/"
+          },
+          {
+            "type": "link",
+            "title": "Unsplash",
+            "icon": "https://unsplash.com/favicon.ico",
+            "url": "https://unsplash.com/"
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": "社交媒体",
+        "children": [
+          {
+            "type": "link",
+            "title": "Twitter",
+            "icon": "https://twitter.com/favicon.ico",
+            "url": "https://twitter.com/"
+          },
+          {
+            "type": "link",
+            "title": "LinkedIn",
+            "icon": "https://www.linkedin.com/favicon.ico",
+            "url": "https://www.linkedin.com/"
+          },
+          {
+            "type": "link",
+            "title": "Reddit",
+            "icon": "https://www.reddit.com/favicon.ico",
+            "url": "https://www.reddit.com/"
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": "娱乐",
+        "children": [
+          {
+            "type": "link",
+            "title": "YouTube",
+            "icon": "https://www.youtube.com/favicon.ico",
+            "url": "https://www.youtube.com/"
+          },
+          {
+            "type": "link",
+            "title": "Netflix",
+            "icon": "https://www.netflix.com/favicon.ico",
+            "url": "https://www.netflix.com/"
+          },
+          {
+            "type": "link",
+            "title": "Spotify",
+            "icon": "https://www.spotify.com/favicon.ico",
+            "url": "https://www.spotify.com/"
+          }
+        ]
+      }
+    ]
+  }
+]

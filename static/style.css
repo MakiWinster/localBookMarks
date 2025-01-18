@@ -1,0 +1,438 @@
+:root {
+    --primary-color: #2563eb;
+    --primary-light: #3b82f6;
+    --primary-dark: #1d4ed8;
+    --secondary-color: #64748b;
+    --background-color: #f8fafc;
+    --sidebar-color: #ffffff;
+    --text-color: #334155;
+    --border-color: #e2e8f0;
+    --hover-color: #f1f5f9;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 380px;
+    background-color: var(--sidebar-color);
+    padding: 24px;
+    border-right: 1px solid var(--border-color);
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.sidebar:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 380px;
+    padding: 24px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: var(--hover-color);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.logo:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.logo i {
+    font-size: 1.8rem;
+}
+
+.search-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.search-container:focus-within {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.search-tabs {
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--border-color);
+    gap: 8px;
+}
+
+.search-tab {
+    padding: 12px 24px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    color: var(--text-color);
+    position: relative;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.search-tab:hover {
+    color: var(--primary-color);
+}
+
+.search-tab.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.search-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.search-box {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.search-box:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.search-engines {
+    display: none;
+    gap: 12px;
+    margin-top: 12px;
+    justify-content: center;
+}
+
+.search-engines.visible {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.engine-button {
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.engine-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(37, 99, 235, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.engine-button:hover::before {
+    width: 200%;
+    height: 200%;
+}
+
+.engine-button.active {
+    border-color: var(--primary-color);
+    background-color: rgba(37, 99, 235, 0.1);
+}
+
+.engine-button i {
+    font-size: 1.4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.folder-filters {
+    list-style: none;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.folder-filter {
+    padding: 12px 16px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 0.95rem;
+}
+
+.folder-filter:hover {
+    background-color: var(--hover-color);
+    transform: translateX(4px);
+}
+
+.folder-filter.active {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateX(8px);
+    box-shadow: var(--shadow-md);
+}
+
+.folder-filter:not(.active):hover {
+    background-color: var(--hover-color);
+    transform: translateX(4px);
+}
+
+.folder-filter i {
+    width: 20px;
+    text-align: center;
+}
+
+.folder-filter:hover i {
+    transform: rotate(-10deg);
+}
+
+.bookmarks-section {
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: sectionFadeIn 0.3s ease forwards;
+}
+
+@keyframes sectionFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-title i {
+    color: var(--primary-color);
+}
+
+.bookmarks-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 0 -8px;
+}
+
+.bookmark-item {
+    flex: 0 1 auto;
+    margin: 8px;
+    opacity: 1;
+    display: block !important;
+}
+
+.bookmark-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 12px 16px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background-color: white;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    min-width: 200px;
+    max-width: 400px;
+}
+
+.bookmark-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(37, 99, 235, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.bookmark-link:hover::before {
+    transform: translateX(100%);
+}
+
+.bookmark-link:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.bookmark-icon {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    margin-right: 12px;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+    object-fit: contain;
+    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookmark-icon[src*="google.com/s2/favicons"] {
+    border-radius: 50%;
+}
+
+.bookmark-link:hover .bookmark-icon {
+    transform: scale(1.1);
+}
+
+/* 水波纹动画 */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(37, 99, 235, 0.3);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .bookmarks-grid {
+        justify-content: center;
+    }
+    
+    .search-tab {
+        padding: 8px 12px;
+    }
+    
+    .bookmark-link {
+        padding: 10px 16px;
+    }
+    
+    .bookmark-link {
+        max-width: 100%;
+    }
+} 
+
+/* 自定义滚动条 */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: var(--secondary-color);
+}
+
+.bookmark-link span {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 8px;
+}
+
+/* 优化图标加载失败时的显示 */
+.bookmark-icon:not([src]), 
+.bookmark-icon[src=""], 
+.bookmark-icon[src*="data:image/svg+xml"] {
+    background-color: var(--secondary-color);
+    padding: 2px;
+    border-radius: 4px;
+    opacity: 0.5;
+} 
