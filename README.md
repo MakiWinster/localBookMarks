@@ -1,6 +1,6 @@
+[English](./README_en.md)
 # Local Bookmarks 把书签转换为静态网页
 一个简洁优雅的本地书签管理工具，把书签转换为浏览器主页。
-![image](https://github.com/user-attachments/assets/1d514214-2e35-448f-b942-c09205843e2c)
 
 
 ## 使用方法
@@ -32,8 +32,7 @@ pip install -r requirements.txt
 python generate_homepage.py
 ```
 
-7. 在浏览器中打开生成的 index.html 文件,并可以设置为浏览器主页  
-![image](https://github.com/user-attachments/assets/0aa481e9-daf3-4dc6-941f-55a8f5290544)
+7. 在浏览器中打开生成的 index.html 文件,并可以设置为浏览器主页
 
 8. (可选)设置为新标签页:
 - Edge浏览器: 安装 [New Tab Changer](https://microsoftedge.microsoft.com/addons/detail/new-tab-changer/dlbnebcbaeajdpekcdhmcgdhoodcjpeg)
